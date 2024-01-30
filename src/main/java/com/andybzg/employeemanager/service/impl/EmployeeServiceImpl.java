@@ -4,7 +4,6 @@ import com.andybzg.employeemanager.exception.UserNotFoundException;
 import com.andybzg.employeemanager.model.Employee;
 import com.andybzg.employeemanager.repository.EmployeeRepository;
 import com.andybzg.employeemanager.service.EmployeeService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -41,10 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    @Transactional
     public void deleteEmployee(Long id) {
-        employeeRepository.deleteEmployeeById(id);
+        employeeRepository.deleteById(id);
     }
-
-
 }
